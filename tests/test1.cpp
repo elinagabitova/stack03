@@ -39,9 +39,11 @@ TEST_CASE("top", "") {
 TEST_CASE("empty", "") {
     stack<int> s1;
     s1.empty();
-    REQUIRE(s1.empty() == 1);
+    REQUIRE(s1.empty() == true);
     s1.push(1);
     s1.empty();
-    REQUIRE(s1.empty() == 0);    
+    REQUIRE(s1.empty() == false);    
     s1.pop();  
+    s1.empty();
+    REQUIRE(s1.empty() == true);
 }
