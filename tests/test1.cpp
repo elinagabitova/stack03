@@ -33,7 +33,17 @@ TEST_CASE("top", "") {
     temp = s1.top();
     REQUIRE(temp == 4);
     REQUIRE(s1.count() == 4);
+}
 
    
-    
+TEST_CASE("empty", "") {
+    stack<int> s1;
+    s1.empty();
+    REQUIRE(s1.empty() == 1);
+    s1.push(1);
+    s1.empty();
+    REQUIRE(s1.empty() == 0);    
+    s1.pop();
+    s1.empty();
+    REQUIRE(s1.empty() == 1);    
 }
