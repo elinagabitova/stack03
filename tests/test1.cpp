@@ -31,7 +31,7 @@ TEST_CASE("top", "") {
     s1.push(3);
     s1.push(4);
     temp = s1.top();
-    REQUIRE(temp == 4);
+    REQUIRE(temp == 1);
     REQUIRE(s1.count() == 4);
 }
 
