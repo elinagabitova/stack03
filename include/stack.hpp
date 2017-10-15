@@ -136,7 +136,10 @@ void stack<T>::print_last() noexcept
 template <typename T>
 bool stack<T>::empty() noexcept
 {
-	return count();
+	if (count_ == 0)
+		return true;
+	else 
+		return false;
 }
 
 template <typename T>
