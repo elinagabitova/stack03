@@ -18,7 +18,7 @@ public:
 	void push(T const &) noexcept;
 	bool empty() const noexcept;
 	T pop() noexcept;
-	T top() const noexcept;
+	T top() noexcept;
 	
 	std::ostream& print(std::ostream&) noexcept;		
 	friend std::ostream& operator << (std::ostream&, stack<T> &) noexcept;
@@ -120,7 +120,7 @@ T stack<T>::pop() noexcept
 }
 
 template <typename T>
-T stack<T>::top() const noexcept
+T stack<T>::top() noexcept
 {
 	T temp = array_[count_--];
 
