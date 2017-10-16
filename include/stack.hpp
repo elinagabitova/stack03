@@ -73,7 +73,7 @@ size_t stack<T>::count() const noexcept
 template <typename T>
 void stack<T>::push(T const &value) noexcept
 {
-	if empty()
+	if (empty())
 	{
 		array_size_ = 1;
 		array_ = new T[array_size_];
@@ -89,7 +89,7 @@ void stack<T>::push(T const &value) noexcept
 template <typename T>
 T stack<T>::pop() noexcept
 {
-	if !(empty())
+	if (empty())
 		throw std::logic_error("Stack is empty! Try again!\n");
 	else
 	{
@@ -110,7 +110,7 @@ T stack<T>::top() noexcept
 template <typename T>
 void stack<T>::print_array() noexcept
 {
-	if !(empty())
+	if (empty())
 		std::cout << "Stack is empty! Try again!\n";
 	else
 		for (unsigned int i = 0; i < count_; i++)
@@ -122,7 +122,7 @@ void stack<T>::print_array() noexcept
 template <typename T>
 void stack<T>::print_last() noexcept
 {
-	if empty()
+	if (empty())
 	{
 		std::cout << "Stack is empty! Try again!\n";
 	}
