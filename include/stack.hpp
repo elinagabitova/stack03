@@ -17,7 +17,7 @@ public:
 	void swap(stack<T> &) noexcept;
 	void push(T const &) noexcept;
 	bool empty() const noexcept;
-	T pop() noexcept;
+	void pop() noexcept;
 	T top() noexcept;
 	
 	std::ostream& print(std::ostream&) noexcept;		
@@ -111,7 +111,7 @@ void stack<T>::push(T const& value) noexcept
 }
 
 template <typename T>
-T stack<T>::pop() noexcept
+void stack<T>::pop() noexcept
 {
 	if (count_ == 0)
 		std::cout << "Stack is empty! Try again!\n";
