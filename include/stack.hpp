@@ -90,7 +90,7 @@ template <typename T>
 T stack<T>::pop() noexcept
 {
 	if (empty())
-		throw std::logic_error("Stack is empty! Try again!\n");
+		cout << "Stack is empty! Try again!\n";
 	else
 	{
 		T temp = array_[--count_];
