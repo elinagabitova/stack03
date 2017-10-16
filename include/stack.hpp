@@ -43,7 +43,7 @@ stack<T>::stack(size_t size) noexcept
 	
 
 template <typename T>
-stack<T>::stack(stack<T> const &) noexcept
+stack<T>::stack(stack<T> const& copy) noexcept
 {
 	array_size_ = copy.array_size_;
 	count_ = copy.count_;
@@ -53,7 +53,7 @@ stack<T>::stack(stack<T> const &) noexcept
 }
 
 template <typename T>
-stack<T>& stack<T>::operator=(stack<T> const &) noexcept
+stack<T>& stack<T>::operator=(stack<T> const& other) noexcept
 {
 	if (this != &other)
 	{
@@ -82,7 +82,7 @@ size_t stack<T>::array_size() const noexcept
 }
 
 template <typename T>
-void stack<T>::swap(stack<T> &) noexcept
+void stack<T>::swap(stack<T>& other) noexcept
 {
 	std::swap(array_, other.array_);
     	std::swap(array_size_, other.array_size_);
@@ -90,7 +90,7 @@ void stack<T>::swap(stack<T> &) noexcept
 }
 
 template <typename T>
-void stack<T>::push(T const &) noexcept
+void stack<T>::push(T const& value) noexcept
 {
 	if (array_size_ == 0)
 	{
@@ -146,7 +146,7 @@ std::ostream& stack<T>::print(std::ostream& os) noexcept
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, stack<T> &) noexcept
+std::ostream& operator << (std::ostream& os, stack<T>& obj) noexcept
 {
 	return obj.os(os);
 }
