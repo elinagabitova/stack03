@@ -90,7 +90,7 @@ template <typename T>
 T stack<T>::pop() noexcept
 {
 	if (empty())
-		cout << "Stack is empty! Try again!\n";
+		std::cout << "Stack is empty! Try again!\n";
 	else
 	{
 		T temp = array_[--count_];
@@ -136,7 +136,7 @@ void stack<T>::print_last() noexcept
 template <typename T>
 bool stack<T>::empty() noexcept
 {
-	return (count_ == 0) ? true : false; 
+	return (count_ == 0); 
 }
 
 template <typename T>
