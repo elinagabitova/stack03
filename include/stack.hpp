@@ -114,9 +114,9 @@ template <typename T>
 T stack<T>::pop() noexcept
 {
 	if (count_ == 0)
-		cout << "Stack is empty! Try again!\n";
+		std::cout << "Stack is empty! Try again!\n";
 	else
-		count --;
+		count_ --;
 }
 
 template <typename T>
@@ -135,6 +135,7 @@ bool stack<T>::empty() const noexcept
 
 template <typename T>
 std::ostream& stack<T>::print(std::ostream& os) noexcept
+{
 	if (count_ == 0)
 		os << "Stack is empty! Try again!\n";
 	else
