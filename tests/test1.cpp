@@ -19,8 +19,13 @@ TEST_CASE("pop", "") {
     s1.push(3);
     s1.push(4);
     s1.push(5);
+    REQUIRE(s1.count() == 5);
     s1.pop();
     REQUIRE(s1.count() == 4);
+    s1.pop();
+    REQUIRE(s1.count() == 3);
+    s1.pop();
+    REQUIRE(s1.count() == 2);
 }
 
 TEST_CASE("top", "") {
@@ -31,7 +36,7 @@ TEST_CASE("top", "") {
     s1.push(3);
     s1.push(4);
     temp = s1.top();
-    REQUIRE(temp == -1);
+    REQUIRE(temp == -4);
     REQUIRE(s1.count() == 4);
 }
 
