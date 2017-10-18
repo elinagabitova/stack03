@@ -9,7 +9,7 @@ class stack
 public:
 	stack();
 	~stack() noexcept;
-	stack(size_t size);
+	stack(size_t);
 	stack(stack<T> const &);
 	stack<T>& operator = (stack<T> const &);
 	size_t count() const noexcept;
