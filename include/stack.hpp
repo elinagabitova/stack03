@@ -8,7 +8,7 @@ class stack
 {
 public:
 	stack() /*basic*/;
-	~stack() /*noexcept*/;
+	~stack() noexcept;
 	stack(stack<T> const &) /*basic*/;
 	stack<T>& operator = (stack<T> const &) /*basic*/;
 	size_t count() const noexcept;
@@ -118,7 +118,7 @@ bool stack<T>::empty() const noexcept
 }
 
 template <typename T>
-std::ostream& stack<T>::print(std::ostream& os) noexcept
+std::ostream& stack<T>::print(std::ostream& os) const noexcept
 { 
 	if (count_ == 0)
 		os << "Stack is empty! Try again!\n";
