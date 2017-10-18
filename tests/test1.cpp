@@ -52,3 +52,4 @@ TEST_CASE("empty", "") {
     s1.empty();
     REQUIRE(s1.empty() == true);
 }
+
