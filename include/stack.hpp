@@ -14,7 +14,7 @@ public:
 	stack<T>& operator = (stack<T> const &);
 	size_t count() const noexcept;
 	
-	void swap(stack<T> &);
+	void swap(stack<T> &) noexcept;
 	void push(T const &);
 	bool empty() const noexcept;
 	void pop();
@@ -76,7 +76,7 @@ size_t stack<T>::count() const noexcept
 }
 
 template <typename T>
-void stack<T>::swap(stack<T>& other)
+void stack<T>::swap(stack<T>& other) noexcept
 {
 	std::swap(array_, other.array_);
     	std::swap(array_size_, other.array_size_);
