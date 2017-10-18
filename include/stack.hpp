@@ -11,17 +11,17 @@ public:
 	~stack() noexcept;
 	stack(size_t size) noexcept;
 	stack(stack<T> const &) noexcept;
-	stack<T>& operator = (stack<T> const &) noexcept;
+	stack<T>& operator = (stack<T> const &);
 	size_t count() const noexcept;
-	size_t array_size() const noexcept;
-	void swap(stack<T> &) noexcept;
-	void push(T const &) noexcept;
-	bool empty() const noexcept;
-	void pop() noexcept;
-	T top() noexcept;
 	
-	std::ostream& print(std::ostream&) noexcept;		
-	friend std::ostream& operator << (std::ostream&, stack<T> &) noexcept;
+	void swap(stack<T> &);
+	void push(T const &);
+	bool empty() const noexcept;
+	void pop();
+	T top();
+	
+	std::ostream& print(std::ostream&);		
+	friend std::ostream& operator << (std::ostream&, stack<T> &);
 	
 private:
 	T* array_;
@@ -76,13 +76,7 @@ size_t stack<T>::count() const noexcept
 }
 
 template <typename T>
-size_t stack<T>::array_size() const noexcept
-{
-	return array_size_;
-}
-
-template <typename T>
-void stack<T>::swap(stack<T>& other) noexcept
+void stack<T>::swap(stack<T>& other)
 {
 	std::swap(array_, other.array_);
     	std::swap(array_size_, other.array_size_);
@@ -90,7 +84,7 @@ void stack<T>::swap(stack<T>& other) noexcept
 }
 
 template <typename T>
-void stack<T>::push(T const& value) noexcept
+void stack<T>::push(T const& value)
 {
 	if (array_size_ == 0)
 	{
@@ -111,7 +105,7 @@ void stack<T>::push(T const& value) noexcept
 }
 
 template <typename T>
-void stack<T>::pop() noexcept
+void stack<T>::pop()
 {
 	if (count_ == 0)
 		std::cout << "Stack is empty! Try again!\n";
@@ -120,7 +114,7 @@ void stack<T>::pop() noexcept
 }
 
 template <typename T>
-T stack<T>::top() noexcept
+T stack<T>::top() 
 {
 	T temp = array_[count_--];
 
@@ -134,7 +128,7 @@ bool stack<T>::empty() const noexcept
 }
 
 template <typename T>
-std::ostream& stack<T>::print(std::ostream& os) noexcept
+std::ostream& stack<T>::print(std::ostream& os)
 {
 	if (count_ == 0)
 		os << "Stack is empty! Try again!\n";
@@ -147,7 +141,7 @@ std::ostream& stack<T>::print(std::ostream& os) noexcept
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, stack<T>& obj) noexcept
+std::ostream& operator << (std::ostream& os, stack<T>& obj) 
 {
 	return obj.os(os);
 }
