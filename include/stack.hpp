@@ -9,7 +9,6 @@ class stack
 public:
 	stack() /*basic*/;
 	~stack() /*noexcept*/;
-	stack(size_t) /*basic*/;
 	stack(stack<T> const &) /*basic*/;
 	stack<T>& operator = (stack<T> const &) /*basic*/;
 	size_t count() const noexcept;
@@ -32,16 +31,7 @@ private:
 template <typename T> 
 stack<T>::stack() : count_(0), array_size_(0), array_(nullptr)
 {}
-
-template <typename T>
-stack<T>::stack(size_t size)
-{
-        count_ = size;
-        array_size_ = size;;
-        array_ = new T[size]();
-}
 	
-
 template <typename T>
 stack<T>::stack(stack<T> const& copy) 
 {
@@ -128,8 +118,8 @@ bool stack<T>::empty() const noexcept
 }
 
 template <typename T>
-std::ostream& stack<T>::print(std::ostream& os)
-{
+std::ostream& stack<T>::print(std::ostream& os) noexcept
+{ 
 	if (count_ == 0)
 		os << "Stack is empty! Try again!\n";
 	else
@@ -141,7 +131,7 @@ std::ostream& stack<T>::print(std::ostream& os)
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, stack<T>& obj) 
+std::ostream& operator << (std::ostream& os, stack<T>& obj) noexcept
 {
 	return obj.os(os);
 }
