@@ -7,21 +7,21 @@ template <typename T>
 class stack
 {
 public:
-	stack();
-	~stack() noexcept;
-	stack(size_t);
-	stack(stack<T> const &);
-	stack<T>& operator = (stack<T> const &);
+	stack() /*basic*/;
+	~stack() /*noexcept*/;
+	stack(size_t) /*basic*/;
+	stack(stack<T> const &) /*basic*/;
+	stack<T>& operator = (stack<T> const &) /*basic*/;
 	size_t count() const noexcept;
 	
 	void swap(stack<T> &) noexcept;
-	void push(T const &);
+	void push(T const &) /*basic*/;
 	bool empty() const noexcept;
-	void pop();
-	T top();
+	void pop() /*strong*/;
+	T top() /*strong*/;
 	
-	std::ostream& print(std::ostream&);		
-	friend std::ostream& operator << (std::ostream&, stack<T> &);
+	std::ostream& print(std::ostream&) const noexcept;		
+	friend std::ostream& operator << (std::ostream&, stack<T> &) noexcept;
 	
 private:
 	T* array_;
