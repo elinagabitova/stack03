@@ -7,10 +7,10 @@ template <typename T>
 class stack
 {
 public:
-	stack() noexcept;
+	stack();
 	~stack() noexcept;
-	stack(size_t size) noexcept;
-	stack(stack<T> const &) noexcept;
+	stack(size_t size);
+	stack(stack<T> const &);
 	stack<T>& operator = (stack<T> const &);
 	size_t count() const noexcept;
 	
@@ -30,11 +30,11 @@ private:
 };
 
 template <typename T> 
-stack<T>::stack() noexcept : count_(0), array_size_(0), array_(nullptr)
+stack<T>::stack() : count_(0), array_size_(0), array_(nullptr)
 {}
 
 template <typename T>
-stack<T>::stack(size_t size) noexcept
+stack<T>::stack(size_t size)
 {
         count_ = size;
         array_size_ = size;;
@@ -43,7 +43,7 @@ stack<T>::stack(size_t size) noexcept
 	
 
 template <typename T>
-stack<T>::stack(stack<T> const& copy) noexcept
+stack<T>::stack(stack<T> const& copy) 
 {
 	array_size_ = copy.array_size_;
 	count_ = copy.count_;
@@ -53,7 +53,7 @@ stack<T>::stack(stack<T> const& copy) noexcept
 }
 
 template <typename T>
-stack<T>& stack<T>::operator=(stack<T> const& other) noexcept
+stack<T>& stack<T>::operator=(stack<T> const& other)
 {
 	if (this != &other)
 	{
