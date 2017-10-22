@@ -10,7 +10,7 @@ public:
 	stack() /*basic*/;
 	~stack() noexcept;
 	stack(stack<T> const &) /*basic*/;
-	stack<T>& operator = (stack<T> const &) /*basic*/;
+	stack<T>& operator = (stack<T> const &) noexcept;
 	size_t count() const noexcept;
 	
 	void swap(stack<T> &) noexcept;
@@ -43,7 +43,7 @@ stack<T>::stack(stack<T> const& copy)
 }
 
 template <typename T>
-stack<T>& stack<T>::operator=(stack<T> const& other)
+stack<T>& stack<T>::operator=(stack<T> const& other) noexcept
 {
 	if (this != &other)
 	{
