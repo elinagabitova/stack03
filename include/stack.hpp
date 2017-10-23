@@ -76,18 +76,18 @@ void stack<T>::swap(stack<T>& other) noexcept
 template <typename T>
 void stack<T>::push(T const& value)
 {
-	if (array_size_ == 0)
+	if (array_size_ == count_)
 	{
-		array_size_ = 1;
-		array_ = new T[array_size_];
-	}
-	else if (count_ + 1 >= array_size_)
-	{
-		array_size_ = array_size_ * 2;
-		T* temp = new T[array_size_];
-		
+		size_t size = array_size_;
+		if (size == 0)
+			size = 1;
+		else 
+			size = array_size_ * 2;
+			
+		T* temp = new T[size];
 		std::copy(array_, array_ + count_, temp);
-
+		
+		array_size_ = size;
 		delete[] array_;
 		array_ = temp;
 	}
