@@ -7,7 +7,7 @@ template <typename T>
 class stack
 {
 public:
-	stack() /*basic*/;
+	stack();
 	~stack() noexcept;
 	stack(stack<T> const &) /*basic*/;
 	stack<T>& operator = (stack<T> const &) noexcept;
@@ -20,7 +20,7 @@ public:
 	T top() /*strong*/;
 	
 	std::ostream& print(std::ostream&) const;		
-	friend std::ostream& operator << (std::ostream&, stack<T> &) noexcept;
+	friend std::ostream& operator << (std::ostream&, stack<T> &);
 	
 private:
 	T* array_;
