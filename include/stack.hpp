@@ -106,9 +106,15 @@ void stack<T>::pop()
 template <typename T>
 T stack<T>::top() 
 {
-	T temp = array_[count_--];
-
-	return temp;
+	if (empty())
+	{
+		throw "Stack is empty!";
+	}
+	else
+	{
+		T temp = array_[count_--];
+		return temp;
+	}
 }
 
 template <typename T>
