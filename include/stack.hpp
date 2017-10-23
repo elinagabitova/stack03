@@ -19,7 +19,7 @@ public:
 	void pop() /*strong*/;
 	T top() /*strong*/;
 	
-	std::ostream& print(std::ostream&) const;		
+	std::ostream& print(std::ostream&) const; /* strong */		
 	friend std::ostream& operator << (std::ostream&, stack<T> &);
 	
 private:
