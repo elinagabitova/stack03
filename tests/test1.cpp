@@ -30,13 +30,11 @@ TEST_CASE("pop", "") {
 
 TEST_CASE("top", "") {
     stack<int> s1;
-    int temp;
     s1.push(1);
     s1.push(2);
     s1.push(3);
     s1.push(4);
-    temp = s1.top();
-    REQUIRE(temp == -1);
+    s1.top();
     REQUIRE(s1.count() == 3);
 }
 
