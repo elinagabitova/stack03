@@ -10,7 +10,7 @@ public:
 	stack() noexcept;
 	~stack() noexcept;
 	stack(stack<T> const &) /*no safety*/;
-	stack<T>& operator = (stack<T> const &) noexcept;
+	stack<T>& operator = (stack<T> const &) /*no safety*/;
 	size_t count() const noexcept;
 	
 	void swap(stack<T> &) noexcept;
