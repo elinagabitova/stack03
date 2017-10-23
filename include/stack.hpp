@@ -33,17 +33,16 @@ stack<T>::stack() noexcept : count_(0), array_size_(0), array_(nullptr)
 {}
 	
 template <typename T>
-stack<T>::stack(stack<T> const& copy) 
+stack<T>::stack(stack<T> const& copy)
+	:array_size_(copy.array_size_), count_(copy.count_)
 {
-	array_size_ = copy.array_size_;
-	count_ = copy.count_;
 	array_ = new T[array_size_];
 
-	std::copy(copy.array_, copy.array_ + copy.array_size_, array_);
+	std::copy(copy.array_, copy.array_ + array_size_, array_);
 }
 
 template <typename T>
-stack<T>& stack<T>::operator=(stack<T> const& other) noexcept
+stack<T>& stack<T>::operator=(stack<T> const& other)
 {
 	if (this != &other)
 	{
@@ -91,16 +90,17 @@ void stack<T>::push(T const& value)
 		delete[] array_;
 		array_ = temp;
 	}
-	array_[count_++] = value;
+	array_[count_] = value;
+	++count_;
 }
 
 template <typename T>
 void stack<T>::pop()
 {
 	if (count_ == 0)
-		std::cout << "Stack is empty! Try again!\n";
+		throw "Stack is empty! Try again!\n";
 	else
-		count_ --;
+		--count_;
 }
 
 template <typename T>
@@ -112,7 +112,7 @@ T stack<T>::top()
 	}
 	else
 	{
-		return array_[count_--];
+		return array_[count_ - 1];
 	}
 }
 
@@ -126,7 +126,7 @@ template <typename T>
 std::ostream& stack<T>::print(std::ostream& os) const
 { 
 	if (count_ == 0)
-		os << "Stack is empty! Try again!\n";
+		throw "Stack is empty! Try again!\n";
 	else
 		for (unsigned int i = 0; i < count_; i++)
 		{
@@ -136,7 +136,8 @@ std::ostream& stack<T>::print(std::ostream& os) const
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& os, stack<T>& obj) noexcept
+std::ostream& operator << (std::ostream& os, stack<T>& obj)
 {
-	return obj.os(os);
+	obj.print(os);
+	return os;
 }
