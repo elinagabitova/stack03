@@ -112,8 +112,7 @@ T stack<T>::top()
 	}
 	else
 	{
-		T temp = array_[count_--];
-		return temp;
+		return array_[count_--];
 	}
 }
 
