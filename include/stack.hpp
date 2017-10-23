@@ -7,9 +7,9 @@ template <typename T>
 class stack
 {
 public:
-	stack();
+	stack() noexcept;
 	~stack() noexcept;
-	stack(stack<T> const &) /*basic*/;
+	stack(stack<T> const &) /*no safety*/;
 	stack<T>& operator = (stack<T> const &) noexcept;
 	size_t count() const noexcept;
 	
@@ -29,7 +29,7 @@ private:
 };
 
 template <typename T> 
-stack<T>::stack() : count_(0), array_size_(0), array_(nullptr)
+stack<T>::stack() noexcept : count_(0), array_size_(0), array_(nullptr)
 {}
 	
 template <typename T>
