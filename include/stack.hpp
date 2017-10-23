@@ -14,7 +14,7 @@ public:
 	size_t count() const noexcept;
 	
 	void swap(stack<T> &) noexcept;
-	void push(T const &) /*basic*/;
+	void push(T const &) /* no safety */;
 	bool empty() const noexcept;
 	void pop() /*strong*/;
 	T top() /*strong*/;
